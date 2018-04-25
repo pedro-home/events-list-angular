@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: 'app.html'
+  template: '<workspace></workspace>'
 })
-export class App {
+export class AppComponent {
 
 }
 
