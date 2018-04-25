@@ -43,35 +43,39 @@ export class WorkspaceComponent implements OnInit {
     let dateNow: Date;
     let dateVal: Date;
     let restrictFn;
-    let index: number;
+    let idxData: number;
+    let idxCat: number;
+    let dataVal: Object; 
     let config: Object;
 
     this.api.getEvents().subscribe(data => {
       data = data.json();
       dateNow = new Date();
 
-      data.forEach(dataVal => {
+      for (idxData = 0; idxData < data.length; idxData++)
+      {
+        dataVal = data[idxData];
         dateVal = this.utils.parseDate(dataVal['dateTime']);
 
-        for (index = 0; index < this.categories.length; index++)
+        for (idxCat = 0; idxCat < this.categories.length; idxCat++)
         {
-          config = this.categories[index];
+          config = this.categories[idxCat];
           restrictFn = config['restriction'];
           if (restrictFn ? restrictFn(dateNow, dateVal) : true)
           {
-            if (config['data'])
+            if (config['events'])
             {
-              config['data'].push(dataVal);
+              config['events'].push(dataVal);
             }
             else
             {
-              config['data'] = [dataVal];
+              config['events'] = [dataVal];
             }
 
             break;
           }
         }
-      });
+      }
 
       this.loading = false;
     });
