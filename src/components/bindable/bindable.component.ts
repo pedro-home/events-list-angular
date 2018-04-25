@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class BindableComponent {
 
-	@Input()
+	@Input('data')
 	public data;
 
 	constructor() {

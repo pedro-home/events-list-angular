@@ -1,1 +1,16 @@
-<div>{{data.label}}</div>
+<div class="category-title">
+    <h3 ion-text>{{data.label}}</h3>
+</div>
+<ion-grid>
+    <ion-row *ngFor="let overview of data.events;">
+        <ion-col col-auto>
+            <div class="overview-image" [ngStyle]="{'background-image': 'url(' + overview.image + ')'}">
+                <h2 ion-text>19</h2>
+                <h3 ion-text>JUN</h3>
+            </div>
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+    </ion-row>
+</ion-grid>

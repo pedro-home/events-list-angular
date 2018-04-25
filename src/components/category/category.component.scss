@@ -1,0 +1,37 @@
+category {
+    .category-title {
+        display: inline-block;
+        padding: 0 2rem;
+
+        background: color($colors, primary);
+        color: color-contrast($colors, primary);
+
+        > .text {
+            font-style: italic;
+            font-weight: 600;
+        }
+    }
+
+    .overview-image {
+        width: 10vw;
+        height: 10vw;
+        min-width: 64px;
+        min-height: 64px;
+        background-position: center;
+
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        > .text {
+            margin: 0px;
+            color: color($colors, light);
+        }
+    }
+
+    .grid {
+        padding: 20px;
+    }
+}
