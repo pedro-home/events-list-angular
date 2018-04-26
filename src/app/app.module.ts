@@ -10,6 +10,7 @@ import { WorkspaceComponent } from '../components/workspace/workspace.component'
 import { BindableComponent } from '../components/bindable/bindable.component';
 import { CategoryComponent } from '../components/category/category.component';
 import { EventComponent } from '../components/event/event.component';
+import { VotersComponent } from '../components/voters/voters.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { EventComponent } from '../components/event/event.component';
     WorkspaceComponent,
     BindableComponent,
     CategoryComponent,
+    VotersComponent,
     EventComponent
   ],
   imports: [
