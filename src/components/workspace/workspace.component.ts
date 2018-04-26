@@ -41,7 +41,6 @@ export class WorkspaceComponent implements OnInit {
   private initCategories(): void
   {
     let dateNow: Date;
-    let dateVal: Date;
     let restrictFn;
     let idxData: number;
     let idxCat: number;
@@ -55,13 +54,13 @@ export class WorkspaceComponent implements OnInit {
       for (idxData = 0; idxData < data.length; idxData++)
       {
         dataVal = data[idxData];
-        dateVal = this.utils.parseDate(dataVal['dateTime']);
+        dataVal['dateTime'] = this.utils.parseDate(dataVal['dateTime']);
 
         for (idxCat = 0; idxCat < this.categories.length; idxCat++)
         {
           config = this.categories[idxCat];
           restrictFn = config['restriction'];
-          if (restrictFn ? restrictFn(dateNow, dateVal) : true)
+          if (restrictFn ? restrictFn(dateNow, dataVal['dateTime']) : true)
           {
             if (config['events'])
             {
