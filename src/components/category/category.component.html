@@ -6,11 +6,27 @@
         <ion-col col-auto>
             <div class="overview-image" [ngStyle]="{'background-image': 'url(' + overview.image + ')'}">
                 <h2 ion-text>19</h2>
-                <h3 ion-text>JUN</h3>
+                <h3 ion-text>JUN.</h3>
             </div>
         </ion-col>
         <ion-col>
-
+            <div class="overview-event">
+                <div class="overview-text">
+                    <h3 ion-text>{{overview.title}}</h3>
+                    <h5 ion-text>BLA BLA</h5>
+                </div>
+                <voters [data]="overview.members"></voters>
+                <div class="overview-buttons">
+                    <button *ngIf="overview.status !== 'ignore'" color="{{overview.status === 'going' ? 'primary' : 'secondary'}}" ion-button icon-start>
+                        <ion-icon *ngIf="overview.status === 'going'" name="checkmark"></ion-icon>
+                        Going
+                    </button>
+                    <button *ngIf="overview.status !== 'going'" color="{{overview.status === 'ignore' ? 'danger' : 'secondary'}}" ion-button icon-start>
+                        <ion-icon *ngIf="overview.status === 'ignore'" name="close"></ion-icon>
+                        Ignore
+                    </button>
+                </div>
+            </div>
         </ion-col>
     </ion-row>
 </ion-grid>
