@@ -42,5 +42,11 @@ category {
                 margin-top: 0;
             }
         }
+
+        .overview-buttons {
+            > .overview-button {
+                display: inline-block;
+            }
+        }
     }
 }
