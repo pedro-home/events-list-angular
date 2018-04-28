@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { IonicPage } from 'ionic-angular';
 import { ApiService } from '../../services/api.service';
 import { UtilsService } from '../../services/utils.service';
 
-@Component({
-  selector: 'workspace',
-  templateUrl: 'workspace.component.html',
-  providers: [ApiService, UtilsService]
+@IonicPage({
+  name: 'page-home'
 })
-export class WorkspaceComponent implements OnInit {
+@Component({
+  selector: 'page-home',
+  templateUrl: 'home.page.html'
+})
+export class HomePage implements OnInit {
 
-  title: string;
   categories: Array<Object>;
-  loading: boolean;
+  title: string;
 
   constructor(private api: ApiService, private utils: UtilsService) {
-    this.title = 'EVENTS';
+    this.title = 'Events';
+
     this.categories = [
       {
         id: 'day',
@@ -34,11 +37,10 @@ export class WorkspaceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loading = true;
-    this.initCategories();
+    this.initComponents();
   }
 
-  private initCategories(): void
+  private initComponents(): void
   {
     let dateNow: Date;
     let restrictFn;
@@ -75,8 +77,6 @@ export class WorkspaceComponent implements OnInit {
           }
         }
       }
-
-      this.loading = false;
     });
   }
 }

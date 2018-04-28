@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-    <ion-grid *ngIf="!loading">
+    <ion-grid>
         <ion-row *ngFor="let cat of categories;">
             <ion-col>
                 <category [data]="cat"></category>
