@@ -16,30 +16,28 @@ category {
         padding: 20px;
 
         .overview-image {
-            width: 25vw;
-            height: 25vw;
-            min-width: 64px;
-            min-height: 64px;
-            max-width: 192px;
-            max-height: 192px;
-            background-position: center;
-    
+            background-position: center;   
             text-align: center;
-    
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 2vw 3vw;
     
             > .text {
                 margin: 0px;
                 color: color($colors, light);
+
+                &:first-child {
+                    font-size: 5vw;
+                }
+
+                font-size: 2vw;
             }
         }
 
         .overview-text {
-            > :first-of-type {
+            > :first-child {
                 text-transform: uppercase;
                 margin-top: 0;
+
+                cursor: pointer;
             }
         }
 

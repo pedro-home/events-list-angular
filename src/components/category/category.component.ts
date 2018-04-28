@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { BindableComponent } from '../bindable/bindable.component';
+import { NavController } from 'ionic-angular';
+import { EventPage } from '../../pages/event/event.page';
 
 @Component({
   selector: 'category',
@@ -9,7 +11,7 @@ export class CategoryComponent extends BindableComponent {
 
   activeStatusConfig: Array<Object>;
 
-  public constructor()
+  public constructor(private navCtrl: NavController)
   {
     super();
     this.activeStatusConfig = [
@@ -28,7 +30,7 @@ export class CategoryComponent extends BindableComponent {
     ];
   }
 
-  changeStatus(id: string, activeStatus: string, status: string)
+  changeStatus(id: string, activeStatus: string, status: string): void
   {
     let nextStatus: string;
     switch (status)
@@ -43,5 +45,10 @@ export class CategoryComponent extends BindableComponent {
 
     this.data.events.find(val => val.id === id)
     .status = nextStatus;
+  }
+
+  goToDetails(id: string): void
+  {
+    this.navCtrl.push(EventPage, this.data.events.find(val => val.id === id));
   }
 }

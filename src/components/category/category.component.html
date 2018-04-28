@@ -12,7 +12,7 @@
         <ion-col>
             <div class="overview-event">
                 <div class="overview-text">
-                    <h3 ion-text>{{overview.title}}</h3>
+                    <h3 ion-text (click)="goToDetails(overview.id)">{{overview.title}}</h3>
                     <h5 ion-text>BLA BLA</h5>
                 </div>
                 <voters [data]="overview.members"></voters>
