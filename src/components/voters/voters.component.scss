@@ -1,7 +1,7 @@
 voters {
     display: block;
 
-    .voter-container {
+    > * {
         display: inline-block;
 
         width: 5vw;
