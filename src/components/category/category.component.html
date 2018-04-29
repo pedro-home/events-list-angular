@@ -1,24 +1,24 @@
 <div class="category-title">
-    <h3 ion-text>{{data.label}}</h3>
+    <h5 ion-text>{{data.label}}</h5>
 </div>
-<ion-grid>
+<ion-grid class="grid-overviews">
     <ion-row *ngFor="let overview of data.events;">
-        <ion-col col-auto>
+        <ion-col col-4 col-xl-3>
             <div class="overview-image" [ngStyle]="{'background-image': 'url(' + overview.image + ')'}">
-                <h2 ion-text>19</h2>
-                <h3 ion-text>JUN.</h3>
+                <h1 ion-text>19</h1>
+                <h4 ion-text>JUN.</h4>
             </div>
         </ion-col>
         <ion-col>
             <div class="overview-event">
                 <div class="overview-text">
-                    <h3 ion-text (click)="goToDetails(overview.id)">{{overview.title}}</h3>
-                    <h5 ion-text>BLA BLA</h5>
+                    <h5 ion-text (click)="goToDetails(overview.id)">{{overview.title}}</h5>
+                    <p ion-text color="secondary">BLA BLA</p>
                 </div>
-                <voters [data]="overview.members"></voters>
+                <voters [maximumNumber]="3" [data]="overview.members"></voters>
                 <div class="overview-buttons">
                     <div *ngFor="let status of activeStatusConfig;" class="overview-button">
-                        <button *ngIf="overview.status === 'none' || overview.status === status.type" (click)="changeStatus(overview.id, status.type, overview.status)" color="{{overview.status === status.type ? status.color : 'secondary'}}" ion-button icon-start>
+                        <button *ngIf="overview.status === 'none' || overview.status === status.type" (click)="changeStatus(overview.id, status.type, overview.status)" color="{{overview.status === status.type ? status.color : 'secondary'}}" ion-button icon-start small>
                             <ion-icon *ngIf="overview.status === status.type" name="{{status.icon}}"></ion-icon>
                             <span>{{status.label}}</span>
                         </button> 
