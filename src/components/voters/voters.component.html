@@ -1,3 +1,4 @@
 <ion-avatar *ngFor="let voter of data;">
     <img src="{{voter.photo}}"/>
 </ion-avatar>
+<span *ngIf="missNumber > 0">+{{missNumber}} others</span>
