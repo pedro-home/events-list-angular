@@ -12,7 +12,8 @@ import { UtilsService } from '../../services/utils.service';
 })
 export class HomePage implements OnInit {
 
-  categories: Array<Object>;
+  private categories: Array<Object>;
+  currCategories: Array<Object>;
   title: string;
 
   constructor(private api: ApiService, private utils: UtilsService) {
@@ -40,8 +41,7 @@ export class HomePage implements OnInit {
     this.initComponents();
   }
 
-  private initComponents(): void
-  {
+  private initComponents(): void {
     let dateNow: Date;
     let restrictFn;
     let idxData: number;
@@ -61,22 +61,45 @@ export class HomePage implements OnInit {
         for (idxCat = 0; idxCat < this.categories.length; idxCat++)
         {
           config = this.categories[idxCat];
+          if (!config['events'])
+          {
+            config['events'] = [];
+          }
+
           restrictFn = config['restriction'];
           if (restrictFn ? restrictFn(dateNow, dataVal['dateTime']) : true)
           {
-            if (config['events'])
-            {
-              config['events'].push(dataVal);
-            }
-            else
-            {
-              config['events'] = [dataVal];
-            }
-
+            config['events'].push(dataVal);
             break;
           }
         }
       }
+
+      this.currCategories = this.utils.clone(this.categories);
     });
+  }
+
+  searchEvent(e: any): void {
+    let value: string = e.target.value;
+    this.currCategories = this.utils.clone(this.categories);
+    if (value && value.trim() !== '')
+    {
+      let idxCat: number;
+      let idxEv: number;
+      let events: Array<Object>;
+
+      for (idxCat = 0; idxCat < this.currCategories.length; idxCat++)
+      {
+        events = this.currCategories[idxCat]['events'];
+        for (idxEv = 0; idxEv < events.length; idxEv++)
+        {
+          if (!events[idxEv]['title'].toLowerCase().includes(value.toLowerCase()))
+          {
+            events.splice(idxEv, 1);
+            idxEv--;
+          }
+        }
+      }
+    }
   }
 }

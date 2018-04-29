@@ -33,6 +33,9 @@ export class UtilsService {
         return this.inSameMonth(date1, date2) &&
         dayMonth2 >= dayMonth1 - dayWeek &&
         dayMonth2 <= dayMonth1 + dayWeek;
+    }
 
+    public clone(obj: any): any {
+        return JSON.parse(JSON.stringify(obj));
     }
 }
