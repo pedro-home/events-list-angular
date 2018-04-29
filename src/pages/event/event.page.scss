@@ -1,3 +1,20 @@
 page-event {
+    .toolbar {
+        height: 25vh;
+        background-position: center;
+        background-size: cover;
 
+        .toolbar-background {
+            display: none;
+        }
+
+        .bar-button {
+            color: color($colors, light);
+            align-self: flex-start;
+
+            &:hover {
+                color: color($colors, light);
+            }
+        }
+    }
 }

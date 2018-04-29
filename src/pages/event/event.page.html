@@ -1,9 +1,35 @@
 <ion-header no-border text-center>
-    <ion-navbar>
-        <img src="{{data.image}}"/>
+    <ion-navbar [ngStyle]="{'background-image': 'url(' + data.image + ')'}">
+
     </ion-navbar>
 </ion-header>
-
 <ion-content>
-
+  <div class="event-details">
+    <h1 iont-text>{{data.title}}</h1>
+    <h4 ion-text>Public event - Hosted by TSH Amsterdam City</h4>
+    <div class="event-requirements">
+      <div class="event-requirement">
+          <ion-icon name="clock"></ion-icon>
+          <span ion-text>Tomorrow June, 19 from 9:30 PM - 11 PM</span>
+      </div>
+      <div class="event-requirement">
+          <ion-icon name="pin"></ion-icon>
+          <span ion-text>The Pool - The Student Hotel Amsterdam City</span>
+      </div>
+      <div class="event-requirement">
+          <ion-icon name="speedometer"></ion-icon>
+          <span style="font-weight: bold;" ion-text>15 Going</span>
+      </div>
+    </div>
+    <voters [data]="data.members"></voters>
+    <div class="event-description">
+      <p>
+        In 1,5 hour we will explore Amsterdam on our bicycles, we'll show beautiful canals, hidden gems, and absol...<button color="dark" ion-button icon-end small clear>Show more<ion-icon name="arrow-down"></ion-icon></button>
+      </p>
+    </div>
+  </div>
+  <div class="comments-container">
+      <ion-textarea placeholder="Leave a message"></ion-textarea>
+      
+  </div>
 </ion-content>
