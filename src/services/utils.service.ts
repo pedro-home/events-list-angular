@@ -25,6 +25,8 @@ export class UtilsService {
 
     public inSameWeek(date1: Date, date2: Date): boolean {
         let dayWeek = date1.getDay();
+        dayWeek = dayWeek === 0 ? 7 : dayWeek;
+
         let dayMonth1 = date1.getDate();
         let dayMonth2 = date2.getDate();
         
