@@ -1,14 +1,12 @@
 <ion-header no-border text-center>
     <ion-navbar>
         <ion-title>{{title}}</ion-title>
-        <ion-toolbar>
-            <ion-searchbar placeholder="Search event" (ionInput)="searchEvent($event)"></ion-searchbar>
-        </ion-toolbar>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <ion-grid>
+    <ion-searchbar placeholder="Search event" (ionInput)="searchEvent($event)"></ion-searchbar>
+    <ion-grid class="grid-categories">
         <ion-row *ngFor="let cat of currCategories;">
             <ion-col>
                 <category [data]="cat"></category>

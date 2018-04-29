@@ -17,7 +17,7 @@ export class EventPage {
   constructor(public navParams: NavParams) {
     this.data = navParams.data;
 
-    // Add more static data
+    // TODO: Add data to FIREBASE
     this.data['messages'] = [
       {
         author: 'Mr. Bean',
