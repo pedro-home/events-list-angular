@@ -20,7 +20,7 @@
                     <div *ngFor="let status of activeStatusConfig;" class="overview-button">
                         <button *ngIf="overview.status === 'none' || overview.status === status.type" (click)="changeStatus(overview.id, status.type, overview.status)" color="{{overview.status === status.type ? status.color : 'secondary'}}" ion-button icon-start>
                             <ion-icon *ngIf="overview.status === status.type" name="{{status.icon}}"></ion-icon>
-                            {{status.label}}
+                            <span>{{status.label}}</span>
                         </button> 
                     </div>
                 </div>

@@ -1,0 +1,46 @@
+<ion-card>
+    <div class="message-author">
+        <ion-row>
+            <ion-col col-auto>
+                <img src="{{data.photo}}" />
+            </ion-col>
+            <ion-col>
+                <h2><span style="font-weight: bold;">{{data.author}}</span> {{(data.attachment ? ' shared a link.' : '')}}</h2>
+                <p>{{data.time + ' min ago'}}</p>
+            </ion-col>
+        </ion-row>
+    </div>
+    
+    <ion-card-content>
+        <p>{{data.comment}}</p>
+        <div *ngIf="data.attachment" [class.message-attachment]="data.attachment">
+            <img src="{{data.attachment.image}}">
+            <h1>{{data.attachment.title}}</h1>
+            <p>{{data.attachment.description}}</p>
+            <p ion-text color="secondary">{{data.attachment.provider}}</p>
+        </div>
+        <div class="message-feedback">
+            <ion-icon name="thumbs-up"></ion-icon>
+            <span>{{data.feedback.highFives}}</span>
+            <ion-icon name="text"></ion-icon>
+            <span>{{data.feedback.comments}}</span>
+        </div>
+    </ion-card-content>
+    
+    <div class="message-buttons">
+        <ion-row>
+            <ion-col>
+            <button color="secondary" ion-button icon-start clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <span>High Five</span>
+            </button>
+            </ion-col>
+            <ion-col>
+            <button color="secondary" ion-button icon-start clear small>
+                <ion-icon name="text"></ion-icon>
+                <span>Comment</span>
+            </button>
+            </ion-col>
+        </ion-row>
+    </div>
+</ion-card>
