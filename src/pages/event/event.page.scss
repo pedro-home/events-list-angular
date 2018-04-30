@@ -17,4 +17,28 @@ page-event {
             }
         }
     }
+
+    .event-details {
+        .event-text {
+            margin-bottom: 0.5rem;
+
+            > .text {
+                margin: 0px;
+
+                &:first-child {
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .grid-requirements {
+            padding: 0px;
+
+            > .row {
+                > .col {
+                    padding: 1rem 0;
+                }
+            }
+        }
+    }
 }
