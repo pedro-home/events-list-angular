@@ -12,11 +12,15 @@ export class VotersComponent extends BindableComponent implements OnInit {
   @Input('maximumNumber')
   maxNumber: number;
 
+  @Input('simple')
+  simpleStyling: boolean;
+
   missNumber: number;
 
   public constructor(private utils: UtilsService) {
     super();
     this.missNumber = 0;
+    this.simpleStyling = false;
 
     // TODO: Calculate maxNumber through available space
     this.maxNumber = 10;
