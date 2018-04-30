@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { MomentModule } from 'ngx-moment';
 
 import { AppComponent } from './app.component';
 
@@ -30,7 +31,8 @@ import { UtilsService } from '../services/utils.service';
   imports: [
     BrowserModule,
     IonicModule.forRoot(AppComponent),
-    HttpModule
+    HttpModule,
+    MomentModule
   ],
   entryComponents: [
     HomePage,

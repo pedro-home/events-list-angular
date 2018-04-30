@@ -6,7 +6,7 @@
             </ion-col>
             <ion-col>
                 <h2><span style="font-weight: bold;">{{data.author}}</span> {{(data.attachment ? ' shared a link.' : '')}}</h2>
-                <p>{{data.time + ' min ago'}}</p>
+                <p ion-text color="secondary">{{data.dateTime | amTimeAgo}}</p>
             </ion-col>
         </ion-row>
     </div>
