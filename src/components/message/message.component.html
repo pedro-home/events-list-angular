@@ -6,24 +6,28 @@
             </ion-col>
             <ion-col>
                 <h2><span style="font-weight: bold;">{{data.author}}</span> {{(data.attachment ? ' shared a link.' : '')}}</h2>
-                <p ion-text color="secondary">{{data.dateTime | amTimeAgo}}</p>
+                <span ion-text color="secondary"><ion-icon name="clock"></ion-icon>{{data.dateTime | amTimeAgo}}</span>
             </ion-col>
         </ion-row>
     </div>
     
     <ion-card-content>
-        <p>{{data.comment}}</p>
+        <p class="message-comment">{{data.comment}}</p>
         <div *ngIf="data.attachment" [class.message-attachment]="data.attachment">
             <img src="{{data.attachment.image}}">
-            <h1>{{data.attachment.title}}</h1>
-            <p>{{data.attachment.description}}</p>
+            <h1 ion-text>{{data.attachment.title}}</h1>
+            <p ion-text>{{data.attachment.description}}</p>
             <p ion-text color="secondary">{{data.attachment.provider}}</p>
         </div>
         <div class="message-feedback">
-            <ion-icon name="thumbs-up"></ion-icon>
-            <span>{{data.feedback.highFives}}</span>
-            <ion-icon name="text"></ion-icon>
-            <span>{{data.feedback.comments}}</span>
+            <span ion-text color="secondary" class="feedback-highfive">
+                <ion-icon name="thumbs-up"></ion-icon>
+                {{data.feedback.highFives}}
+            </span>
+            <span ion-text color="secondary" class="feedback-comment">
+                <ion-icon name="text"></ion-icon>
+                {{data.feedback.comments}}
+            </span>
         </div>
     </ion-card-content>
     
