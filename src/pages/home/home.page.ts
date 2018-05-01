@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, ToastController } from 'ionic-angular';
 import { ApiService } from '../../services/api.service';
 import { UtilsService } from '../../services/utils.service';
 
@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
   currCategories: Array<Object>;
   title: string;
 
-  constructor(private api: ApiService, private utils: UtilsService) {
+  constructor(private notifications: ToastController, private api: ApiService, private utils: UtilsService) {
     this.title = 'Events';
 
     this.categories = [
@@ -76,6 +76,20 @@ export class HomePage implements OnInit {
       }
 
       this.currCategories = this.utils.clone(this.categories);
+    },
+    error => {
+      let message = 'Unknown error';
+      if (!(error.error instanceof ErrorEvent))
+      {
+        message = 'API is not responding';
+      }
+
+      let alert = this.notifications.create({
+        message: `${message}! Restart Application.`,
+        duration: 2000
+      });
+  
+      alert.present(alert);
     });
   }
 
